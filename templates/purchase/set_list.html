@@ -1,0 +1,32 @@
+{% extends 'purchase/base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+<a href="{% url 'add_set' %}" class="btn btn-primary" >Add Set</a>
+<a href="{% url 'purchase_list' %}" class="btn btn-primary" >Go Back</a>
+<table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>SetID</th>
+            <th>SetName</th>
+            <th>Theme</th>
+            <th>UVP</th>
+
+        </tr>
+        </thead>
+        {% for set in sets %}
+            <tr>
+                <td>{{ set.setNumber }}</td>
+                <td>{{ set.setName }}</td>
+                <td>{{ set.theme }}</td>
+                <td>{{ set.uvp }}</td>
+
+
+            </tr>
+
+        {% endfor %}
+    </table>
+
+
+{% endblock %}

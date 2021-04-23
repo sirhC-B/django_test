@@ -1,0 +1,30 @@
+{% extends 'purchase/base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+<a href="{% url 'add_owner' %}" class="btn btn-primary" >Add Owner</a>
+<a href="{% url 'purchase_list' %}" class="btn btn-primary" >Go Back</a>
+<table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+
+
+
+        </tr>
+        </thead>
+        {% for owner in owners %}
+            <tr>
+                <td>{{ owner.OwnerName }}</td>
+
+
+
+
+            </tr>
+
+        {% endfor %}
+    </table>
+
+
+{% endblock %}

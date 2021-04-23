@@ -1,0 +1,30 @@
+{% extends 'purchase/base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+<a href="{% url 'add_shop' %}" class="btn btn-primary" >Add Shop</a>
+<a href="{% url 'purchase_list' %}" class="btn btn-primary" >Go Back</a>
+<table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>URL</th>
+
+
+        </tr>
+        </thead>
+        {% for shop in shops %}
+            <tr>
+                <td>{{ shop.ShopName }}</td>
+                <td>{{ shop.url }}</td>
+
+
+
+            </tr>
+
+        {% endfor %}
+    </table>
+
+
+{% endblock %}

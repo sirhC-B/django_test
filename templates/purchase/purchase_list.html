@@ -1,0 +1,37 @@
+{% extends 'purchase/base.html' %}
+
+
+{% block content %}
+    <a href="{% url 'set_list' %}" class="btn btn-primary" >Set List</a>
+    <a href="{% url 'theme_list' %}" class="btn btn-primary" >Theme List</a>
+    <a href="{% url 'shop_list' %}" class="btn btn-primary" >Shop List</a>
+    <a href="{% url 'owner_list' %}" class="btn btn-primary" >Owner List</a>
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>SetID</th>
+            <th>SetName</th>
+            <th>Price(€)</th>
+            <th>Date</th>
+            <th>Shop</th>
+            <th>Owner</th>
+
+        </tr>
+        </thead>
+        {% for purchase in purchases %}
+            <tr>
+                <td>{{ purchase.purchaseSet.setNumber }}</td>
+                <td>{{ purchase.purchaseSet.setName }}</td>
+                <td>{{ purchase.price }}</td>
+                <td>{{ purchase.date }}</td>
+                <td>{{ purchase.purchaseShop.ShopName }}</td>
+                <td>{{ purchase.owner.all|join:',' }}</td>
+
+            </tr>
+
+        {% endfor %}
+    </table>
+<a href="{% url 'add_purchase' %}" class="btn btn-primary" >Add Purchase</a>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'purchase/base.html' %}
+{% load bootstrap4 %}
+
+
+{% block content %}
+
+    <form action="" enctype="multipart/form-data" method="POST" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <button type="submit" class="btn btn-primary">Add</button>
+        <a href="{% url 'set_list' %}" class="btn btn-primary" >Go Back</a>
+
+    </form>
+
+{% endblock %}
